@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OTO 4 — The Universal Frequences</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    /* Cyan/Ethereal palette */
+    --primary: #4ABBC4;
+    --primary-light: #80D8E0;
+    --primary-dark: #1A7A84;
+    --white: #EAF8FA;
+    --silver: #C0D8DC;
+    --deep: #020C0E;
+    --deep2: #061418;
+    --deep3: #0A1E22;
+    --text: #D4EFF2;
+    --text2: #9AC8CE;
+    --muted: #3A7A84;
+    --ink: #020C0E;
+    --alert: #7A2020;
+    --border: rgba(74,187,196,0.2);
+    --glow: rgba(74,187,196,0.12);
+  }
+
+  html { scroll-behavior: smooth; }
+  body { background: var(--deep); color: var(--text); font-family: 'Crimson Pro', Georgia, serif; font-size: 19px; line-height: 1.75; overflow-x: hidden; }
+
+  /* Ethereal wave background */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background:
+      radial-gradient(ellipse 80% 40% at 50% 0%, rgba(74,187,196,0.06) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 30% at 50% 100%, rgba(74,187,196,0.04) 0%, transparent 60%);
+    pointer-events: none; z-index: 0;
+  }
+
+  h1,h2,h3,h4 { font-family: 'Cinzel', serif; color: var(--primary-light); line-height: 1.2; letter-spacing: 0.02em; }
+  .eyebrow { font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--primary-dark); display: block; margin-bottom: 1rem; }
+  em { color: var(--white); font-style: italic; }
+  strong { color: #EAF8FA; font-weight: 600; }
+
+  .container { max-width: 780px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+  section { padding: 64px 0; }
+
+  .top-bar { background: var(--alert); text-align: center; padding: 10px 24px; font-family: 'Cinzel', serif; font-size: 12px; letter-spacing: 0.1em; color: #FFD0D0; position: relative; z-index: 10; }
+
+  .hero { padding: 80px 0 64px; text-align: center; position: relative; overflow: hidden; }
+  .hero::before {
+    content: '';
+    position: absolute; top: -80px; left: 50%; transform: translateX(-50%);
+    width: 900px; height: 600px;
+    background: radial-gradient(ellipse, rgba(74,187,196,0.1) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  /* Animated wave ornament */
+  .wave-wrap { margin: 0 auto 36px; height: 64px; width: 260px; position: relative; overflow: hidden; }
+  .wave-wrap canvas { display: block; }
+
+  .final-badge { display:inline-block;background:rgba(74,187,196,0.1);border:1px solid var(--border);padding:5px 18px;font-family:'Cinzel',serif;font-size:10px;letter-spacing:0.2em;color:var(--primary-light);margin-bottom:12px; }
+
+  .step-badge { display:inline-flex;align-items:center;gap:10px;border:1px solid var(--border);padding:7px 20px;font-family:'Cinzel',serif;font-size:11px;letter-spacing:0.18em;color:var(--primary);margin-bottom:28px; }
+  .step-badge span { background:var(--primary-dark);color:var(--primary-light);padding:2px 8px;font-size:10px; }
+
+  .hero h1 { font-size:clamp(28px,4.5vw,44px);margin-bottom:20px; }
+  .hero-sub { font-size:clamp(18px,2.2vw,22px);color:var(--text2);max-width:620px;margin:0 auto 16px;font-style:italic;font-weight:300; }
+  .hero-price-inline { font-family:'Cinzel',serif;font-size:15px;color:var(--primary-light);margin-bottom:32px;letter-spacing:0.05em; }
+
+  /* FREQUENCY GRID */
+  .freq-section { background: var(--deep2); }
+  .freq-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px; }
+  @media(max-width:580px){ .freq-grid { grid-template-columns:1fr 1fr; } }
+  .freq-card {
+    border:1px solid var(--border);padding:22px 16px;text-align:center;
+    background: var(--deep3); position: relative; overflow: hidden;
+    transition: border-color 0.2s;
+  }
+  .freq-card:hover { border-color: var(--primary); }
+  .freq-card::before {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--primary-dark), transparent);
+    opacity: 0.6;
+  }
+  .freq-hz { font-family:'Cinzel',serif;font-size:22px;color:var(--primary-light);line-height:1;margin-bottom:4px; }
+  .freq-name { font-size:11px;letter-spacing:0.12em;color:var(--primary-dark);font-family:'Cinzel',serif;margin-bottom:8px; }
+  .freq-desc { font-size:14px;color:var(--text2);line-height:1.5; }
+
+  /* WAVEFORM visual */
+  .waveform-section { padding: 64px 0; }
+  .waveform-svg { display: block; margin: 36px auto; width: 100%; max-width: 680px; }
+
+  .teach { background: var(--deep2); }
+  .teach-intro { font-size:20px;color:var(--text2);margin:24px 0 36px; }
+  .benefit-list { list-style:none; }
+  .benefit-list li { display:flex;gap:14px;align-items:flex-start;padding:18px 0;border-bottom:1px solid var(--border); }
+  .benefit-list li:last-child { border-bottom:none; }
+  .b-icon { color:var(--primary);font-size:18px;flex-shrink:0;margin-top:3px; }
+  .b-text strong { display:block;font-family:'Cinzel',serif;font-size:15px;color:var(--primary-light);margin-bottom:4px; }
+  .b-text span { font-size:16px;color:var(--text2); }
+
+  .story-block p { margin-bottom:22px;font-size:19px; }
+  .pull-quote { border-left:3px solid var(--primary-dark);padding:18px 24px;margin:36px 0;font-size:21px;font-style:italic;color:var(--primary-light);font-weight:300;background:rgba(74,187,196,0.04); }
+
+  /* VALUE STACK */
+  .stack { background: var(--deep2); padding:64px 0; }
+  .stack-item { display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid var(--border);font-size:17px; }
+  .stack-item:last-child { border-bottom:none; }
+  .stack-name { color:var(--text2); }
+  .stack-price { font-family:'Cinzel',serif;color:var(--primary-light);font-size:15px; }
+  .stack-total { display:flex;justify-content:space-between;align-items:center;padding:20px 0 0;margin-top:8px;border-top:2px solid rgba(74,187,196,0.3); }
+  .stack-total-label { font-family:'Cinzel',serif;font-size:16px;color:var(--text); }
+  .stack-total-price { font-family:'Cinzel',serif;font-size:22px;color:var(--primary-light); }
+
+  .cta-section { text-align:center;padding:80px 0;position:relative; }
+  .cta-section::before { content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(74,187,196,0.08) 0%,transparent 65%);pointer-events:none; }
+
+  .price-box { display:inline-block;border:1px solid var(--border);padding:40px 52px;margin:32px 0;position:relative;background:var(--deep2); }
+  .price-box::before,.price-box::after { content:'◉';position:absolute;color:var(--primary-dark);font-size:14px;opacity:0.6; }
+  .price-box::before { top:-8px;left:-8px; } .price-box::after { bottom:-8px;right:-8px; }
+  .price-old { font-size:15px;color:var(--muted);text-decoration:line-through;margin-bottom:4px; }
+  .price-main { font-family:'Cinzel',serif;font-size:54px;color:var(--primary-light);line-height:1;margin-bottom:6px; }
+  .price-note { font-size:13px;color:var(--muted);letter-spacing:0.08em; }
+
+  .cta-btn {
+    display:inline-block;
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary-light);
+    font-family:'Cinzel',serif;font-size:15px;font-weight:700;letter-spacing:0.12em;
+    padding:18px 48px;text-decoration:none;text-transform:uppercase;
+    transition:all 0.2s;cursor:pointer;margin-bottom:16px;
+    position: relative; overflow: hidden;
+  }
+  .cta-btn::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: var(--primary);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: -1;
+  }
+  .cta-btn:hover::before { transform: translateX(0); }
+  .cta-btn:hover { color: var(--ink); box-shadow: 0 8px 40px rgba(74,187,196,0.35); }
+
+  .cta-sub { font-size:13px;color:var(--muted);margin-top:10px; }
+  .trust-row { display:flex;justify-content:center;gap:28px;flex-wrap:wrap;margin-top:32px; }
+  .trust-item { font-size:13px;color:var(--muted); }
+  .no-thanks { text-align:center;padding:20px 0 48px; }
+  .no-thanks a { font-size:13px;color:var(--muted);text-decoration:underline; }
+
+  .guarantee { background:var(--deep2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:64px 0; }
+  .guarantee-inner { display:flex;gap:36px;align-items:flex-start; }
+  @media(max-width:580px){ .guarantee-inner { flex-direction:column; } }
+  .guarantee-seal { flex-shrink:0;width:100px;height:100px;border:2px solid var(--primary-dark);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-family:'Cinzel',serif;background:radial-gradient(ellipse,rgba(74,187,196,0.1),transparent); }
+  .guarantee-seal .days { font-size:28px;color:var(--primary-light);line-height:1;font-weight:700; }
+  .guarantee-seal .gtext { font-size:8px;letter-spacing:0.15em;color:var(--primary-dark);text-transform:uppercase; }
+  .guarantee-text h3 { font-size:20px;margin-bottom:12px; }
+  .guarantee-text p { font-size:17px;color:var(--text2);line-height:1.7; }
+
+  footer { background:var(--deep);border-top:1px solid var(--border);padding:36px 24px;text-align:center;font-size:13px;color:var(--muted);line-height:2;position:relative;z-index:1; }
+  footer a { color:var(--muted);text-decoration:underline; }
+  .disclaimer { font-size:13px;color:var(--muted);border-top:1px solid var(--border);padding-top:20px;margin-top:32px;line-height:1.7;font-style:italic; }
+
+  @keyframes fadeUp { from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);} }
+  .fade-in { animation:fadeUp 0.7s ease both; }
+  .delay-1{animation-delay:.15s;} .delay-2{animation-delay:.28s;} .delay-3{animation-delay:.42s;}
+</style>
+</head>
+<body>
+
+<div class="top-bar">⚠ Final One-Time Offer — The Last Step of Your Initiation</div>
+
+<section class="hero">
+  <div class="container">
+    <div class="final-badge fade-in">Most Advanced Module in the Series</div>
+    <div class="step-badge fade-in"><span>FINAL</span> Complete Frequency Library</div>
+
+    <!-- Animated SVG waveform as ornament -->
+    <div class="fade-in delay-1" style="margin: 0 auto 36px; max-width: 320px;">
+      <svg viewBox="0 0 320 80" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;filter:drop-shadow(0 0 14px rgba(74,187,196,0.4));">
+        <!-- 432 Hz wave -->
+        <path d="M0 40 Q20 10 40 40 Q60 70 80 40 Q100 10 120 40 Q140 70 160 40 Q180 10 200 40 Q220 70 240 40 Q260 10 280 40 Q300 70 320 40" stroke="#4ABBC4" stroke-width="1.5" fill="none" opacity="0.9"/>
+        <!-- 528 Hz wave (faster) -->
+        <path d="M0 40 Q13 18 26 40 Q39 62 52 40 Q65 18 78 40 Q91 62 104 40 Q117 18 130 40 Q143 62 156 40 Q169 18 182 40 Q195 62 208 40 Q221 18 234 40 Q247 62 260 40 Q273 18 286 40 Q299 62 312 40" stroke="#1A7A84" stroke-width="0.75" fill="none" opacity="0.5"/>
+        <!-- Center line -->
+        <line x1="0" y1="40" x2="320" y2="40" stroke="#1A7A84" stroke-width="0.5" opacity="0.3" stroke-dasharray="4 4"/>
+        <!-- Freq labels -->
+        <text x="8" y="14" font-family="Cinzel,serif" font-size="8" fill="#4ABBC4" opacity="0.7">432 Hz</text>
+        <text x="8" y="26" font-family="Cinzel,serif" font-size="7" fill="#1A7A84" opacity="0.6">528 Hz</text>
+      </svg>
+    </div>
+
+    <h1 class="fade-in delay-1">The Universal Frequences</h1>
+    <p class="hero-sub fade-in delay-2">The complete Masonic audio frequency library — 33 precision-crafted tracks that activate every layer of your prosperity consciousness, from foundation to illumination</p>
+    <p class="hero-price-inline fade-in delay-2">Complete your initiation for just <strong>$67</strong></p>
+    <a href="#order" class="cta-btn fade-in delay-3">Yes — Complete My Initiation</a>
+    <p class="cta-sub fade-in delay-3">🔒 One click · Same card · Instant audio delivery</p>
+  </div>
+</section>
+
+<!-- FREQUENCY GRID -->
+<section class="freq-section">
+  <div class="container">
+    <span class="eyebrow">The Frequency Architecture</span>
+    <h2>33 Tracks Across 6 Frequency Families</h2>
+    <p style="color:var(--text2);margin:20px 0;font-size:18px;">Each family targets a specific layer of prosperity consciousness — from clearing deep blocks to activating your highest vision.</p>
+    <div class="freq-grid">
+      <div class="freq-card"><div class="freq-hz">174 Hz</div><div class="freq-name">Foundation</div><div class="freq-desc">Pain release and energetic groundedness — the base of the prosperity structure.</div></div>
+      <div class="freq-card"><div class="freq-hz">285 Hz</div><div class="freq-name">Restoration</div><div class="freq-desc">Cellular and energetic repair — restoring what scarcity conditioning has damaged.</div></div>
+      <div class="freq-card"><div class="freq-hz">396 Hz</div><div class="freq-name">Liberation</div><div class="freq-desc">Fear and guilt dissolution — clearing the emotional floor beneath abundance.</div></div>
+      <div class="freq-card"><div class="freq-hz">432 Hz</div><div class="freq-name">Alignment</div><div class="freq-desc">Natural harmonic tuning — aligning your frequency with universal order.</div></div>
+      <div class="freq-card"><div class="freq-hz">528 Hz</div><div class="freq-name">Transformation</div><div class="freq-desc">Deep transformation and renewal — the frequency of the heart field.</div></div>
+      <div class="freq-card"><div class="freq-hz">963 Hz</div><div class="freq-name">Illumination</div><div class="freq-desc">Crown activation — the highest frequency in the Masonic prosperity tradition.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="teach">
+  <div class="container">
+    <span class="eyebrow">The Resonance Tradition</span>
+    <h2>Sound Is the Oldest Technology for Inner Transformation</h2>
+    <p class="teach-intro">The Masonic lodges were not silent spaces. Sound — choral harmonics, specific intervals, ritual tones — was an integral part of their practice. <em>The Universal Frequences</em> is the audio dimension of the complete system.</p>
+    <ul class="benefit-list">
+      <li><div class="b-icon">◎</div><div class="b-text"><strong>33 Original Frequency Tracks</strong><span>One for each degree of Masonic initiation — from the simplest grounding tone to the most advanced illumination frequency. All produced at 24-bit studio quality.</span></div></li>
+      <li><div class="b-icon">◎</div><div class="b-text"><strong>Layered Binaural Architecture</strong><span>Each track combines the primary Solfeggio frequency with precision-calibrated binaural beats — carrier waves that guide your brain into the optimal state for that frequency's work.</span></div></li>
+      <li><div class="b-icon">◎</div><div class="b-text"><strong>The Masonic Choral Overtones</strong><span>7 tracks featuring reconstructed harmonic overtones drawn from 19th-century lodge musical traditions — the rarest audio content in the entire series.</span></div></li>
+      <li><div class="b-icon">◎</div><div class="b-text"><strong>Usage Protocol Guide</strong><span>A complete PDF guide to using the 33 tracks — morning practice, visualization sessions, sleep, deep work. Takes all the guesswork out entirely.</span></div></li>
+      <li><div class="b-icon">◎</div><div class="b-text"><strong>Seamless App Integration</strong><span>Each track is mapped to specific app modules — so every frequency session amplifies your core daily practice.</span></div></li>
+    </ul>
+  </div>
+</section>
+
+<section style="padding:64px 0;">
+  <div class="container">
+    <span class="eyebrow">The Craft Always Worked With Sound</span>
+    <h2>The Element That Makes Everything Exponentially More Effective</h2>
+    <p>The Edinburgh manuscripts contained an entire section on what the lodge called <em>"The Resonance Work"</em> — a systematic use of specific tones to shift the mental and emotional state of initiates before, during, and after practice.</p>
+    <div class="pull-quote">"As the stone is shaped by the chisel, so the mind is shaped by sound. Choose your tones as you would choose your tools — with knowledge and intention."<br><br><small style="font-size:13px;color:var(--muted);font-style:normal;letter-spacing:0.1em;">— The Edinburgh Manuscripts, circa 1905</small></div>
+    <p>Frequency work is not optional in the Masonic tradition. It is foundational. This library is the element that brings the entire system to life.</p>
+  </div>
+</section>
+
+<!-- VALUE STACK -->
+<section class="stack">
+  <div class="container">
+    <span class="eyebrow">Everything Included</span>
+    <h2>The Complete Value Stack</h2>
+    <p style="color:var(--text2);margin:16px 0 32px;font-size:17px;">Everything you receive with The Universal Frequences upgrade:</p>
+    <div>
+      <div class="stack-item"><span class="stack-name">33 Original Frequency Tracks (24-bit studio quality)</span><span class="stack-price">$97</span></div>
+      <div class="stack-item"><span class="stack-name">Layered Binaural Architecture (all 33 tracks)</span><span class="stack-price">$47</span></div>
+      <div class="stack-item"><span class="stack-name">7 Masonic Choral Overtone Tracks</span><span class="stack-price">$67</span></div>
+      <div class="stack-item"><span class="stack-name">Complete Usage Protocol PDF Guide</span><span class="stack-price">$27</span></div>
+      <div class="stack-item"><span class="stack-name">App Integration Map</span><span class="stack-price">$17</span></div>
+      <div class="stack-total">
+        <span class="stack-total-label">Total Value</span>
+        <span class="stack-total-price">$255 — Yours for $67</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section" id="order">
+  <div class="container">
+    <span class="eyebrow">Complete Your Initiation</span>
+    <h2>The Final Layer of the System</h2>
+    <p style="color:var(--text2);max-width:560px;margin:16px auto 0;font-size:18px;font-style:italic;">You have the practice, the protection, the map, and the perception. The Universal Frequences adds the resonance layer that activates everything.</p>
+    <div class="price-box">
+      <div class="price-old">Total value: $255</div>
+      <div class="price-main">$67</div>
+      <div class="price-note">One-time · Instant audio delivery · 60-day guarantee</div>
+    </div>
+    <a href="#" class="cta-btn">Yes — Complete My Initiation for $67</a>
+    <p class="cta-sub">One click · Same card · No extra checkout needed</p>
+    <div class="trust-row">
+      <div class="trust-item">🔒 256-bit SSL</div>
+      <div class="trust-item">✓ Digistore24</div>
+      <div class="trust-item">✓ 60-day guarantee</div>
+      <div class="trust-item">✓ Instant delivery</div>
+    </div>
+      <!-- Digistore24 Authorized Seller Badge -->
+    <div style="display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);padding:10px 20px;margin-top:28px;">
+      <img src="https://cch-files.edge.live.ds25.io/cch/v/679fa190-98d7-453b-abe0-952db4512a5e/files/615b5be783cea_5f50fc34342ec-profile-picture.png" alt="Digistore24 Authorized Seller" style="height:36px;">
+      <span style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;opacity:0.6;">Authorized Digistore24 Seller</span>
+    </div>
+  </div>
+</section>
+
+<div class="no-thanks"><a href="thank-you.html">No thank you — I'll complete my order without the frequency library.</a></div>
+
+<section class="guarantee">
+  <div class="container">
+    <div class="guarantee-inner">
+      <div class="guarantee-seal"><div class="days">60</div><div class="gtext">Day</div><div class="gtext">Guarantee</div></div>
+      <div class="guarantee-text">
+        <h3>Protected by Our 60-Day Guarantee</h3>
+        <p>All 33 tracks covered by the same 60-day money-back guarantee. Not satisfied? Email us for a full refund — no questions asked.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Masonic Prosperity LLC · All Rights Reserved</p>
+  <p style="margin-top:8px;">
+    <a href="#">Privacy Policy</a> &nbsp;·&nbsp;
+    <a href="#">Terms of Service</a> &nbsp;·&nbsp;
+    <a href="#">Contact Support</a> &nbsp;·&nbsp;
+    <a href="#">Refund Policy</a>
+  </p>
+
+  <div style="max-width:640px;margin:32px auto 0;text-align:left;font-size:12px;line-height:1.9;border-top:1px solid rgba(255,255,255,0.08);padding-top:24px;">
+
+    <p style="margin-bottom:12px;"><strong>Unsubscribe:</strong> If you no longer wish to receive emails or newsletters from us, simply click the "Unsubscribe" link at the bottom of any email we send. Your request will be processed immediately.</p>
+
+    <p style="margin-bottom:12px;">This site is not a part of the Facebook website or Facebook Inc. Additionally, this site is not endorsed by Facebook in any way. FACEBOOK is a trademark of FACEBOOK, Inc.</p>
+
+    <p style="margin-bottom:12px;"><strong>Medical Disclaimer:</strong> The content of this site is for informational purposes only and does not substitute professional medical advice. Always seek the advice of your physician or other qualified health professional regarding any medical condition or treatment.</p>
+
+    <p style="margin-bottom:12px;"><strong>Results Disclaimer:</strong> Individual results vary. Testimonials and examples are not intended to represent or guarantee that anyone will achieve the same or similar results. Results described are individual experiences and are not typical or guaranteed.</p>
+
+    <p style="margin-bottom:12px;">This product is not affiliated with, sponsored by, or endorsed by any Masonic organization. All historical references are for educational and informational purposes only.</p>
+
+    <div style="display:flex;align-items:center;justify-content:center;gap:16px;margin-top:24px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.08);">
+      <img src="https://cch-files.edge.live.ds25.io/cch/v/679fa190-98d7-453b-abe0-952db4512a5e/files/615b5be783cea_5f50fc34342ec-profile-picture.png" alt="Digistore24 Secure" style="height:32px;opacity:0.7;">
+      <span style="font-size:10px;letter-spacing:0.12em;text-transform:uppercase;">Secure Processing by Digistore24</span>
+    </div>
+
+  </div>
+</footer>
+</body>
+</html>

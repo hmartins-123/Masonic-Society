@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Your Third Eye Result</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    img { max-width: 100%; height: auto; }
+
+    body {
+      background: #000;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* HEADLINE */
+    .headline-wrap {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 24px 16px 10px;
+      background: #000;
+    }
+    .headline-box {
+      width: 920px;
+      max-width: 92vw;
+      font-size: 27px;
+      font-weight: 700;
+      line-height: 1.35;
+      color: #fff;
+      text-align: center;
+    }
+    .red-bold {
+      color: #FF2B2B;
+      font-weight: 700;
+      text-shadow: 0 0 10px rgba(255,43,43,.55);
+    }
+    .hl-badge {
+      background: #FF2B2B;
+      color: #fff;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    .hl-dormant {
+      font-weight: 700;
+      font-style: italic;
+      text-decoration: underline;
+      color: #fff;
+    }
+
+    /* TOP IMAGE */
+    .top-image {
+      width: 100%;
+      background: #000;
+      text-align: center;
+      padding: 8px 0 0 0;
+    }
+    .top-image img {
+      width: 100%;
+      max-width: 320px;
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* MESSAGE BLOCK */
+    .msg-wrap {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 10px 16px;
+      background: #000;
+    }
+    .msg-box {
+      width: 920px;
+      max-width: 92vw;
+      font-size: 18.5px;
+      line-height: 1.45;
+      color: #fff;
+      text-align: center;
+    }
+    .msg-box p { margin: 0; color: #fff; }
+    .green-ital-u {
+      color: #39FF14;
+      font-style: italic;
+      font-weight: 700;
+      text-decoration: underline;
+      text-shadow: 0 0 10px rgba(57,255,20,.45);
+    }
+    .blue-no-u {
+      color: #2EA8FF;
+      text-decoration: none;
+      font-weight: 700;
+      text-shadow: 0 0 10px rgba(46,168,255,.55);
+    }
+    .white-bold { color: #fff; font-weight: 700; }
+    .bold { font-weight: 700; }
+    .bold-ital { font-weight: 700; font-style: italic; }
+
+    /* GIF IMAGE */
+    .gif-image {
+      width: 100%;
+      background: #000;
+      text-align: center;
+      padding: 10px 0;
+    }
+    .gif-image img {
+      width: 100%;
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* BUTTON */
+    .btn-wrap {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 20px 16px 30px;
+      background: #000;
+    }
+    .pulse-button {
+      background-color: #28a745;
+      color: white;
+      width: 100%;
+      max-width: 92vw;
+      padding: 22px 0;
+      font-size: 26px;
+      font-weight: bold;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      text-decoration: none;
+      animation: pulseGlow 2s infinite;
+      box-shadow: 0 0 10px rgba(40,167,69,0.6);
+      transition: transform 0.3s ease;
+      text-align: center;
+      display: block;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    .pulse-button:hover { transform: scale(1.05); }
+    @keyframes pulseGlow {
+      0%   { box-shadow: 0 0 10px rgba(40,167,69,0.5), 0 0 20px rgba(40,167,69,0.4), 0 0 30px rgba(40,167,69,0.3); }
+      50%  { box-shadow: 0 0 20px rgba(40,255,100,0.8), 0 0 40px rgba(40,255,100,0.5), 0 0 60px rgba(40,255,100,0.3); }
+      100% { box-shadow: 0 0 10px rgba(40,167,69,0.5), 0 0 20px rgba(40,167,69,0.4), 0 0 30px rgba(40,167,69,0.3); }
+    }
+
+    /* BOTTOM LOGO */
+    .bottom-logo {
+      width: 100%;
+      background: #000;
+      text-align: center;
+      padding: 10px 0 40px;
+    }
+    .bottom-logo img {
+      width: 224px;
+      display: block;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 480px) {
+      .headline-box { font-size: 27px; }
+      .msg-box { font-size: 18.5px; }
+      .pulse-button { font-size: 20px; }
+    }
+  </style>
+
+  <link rel="preload" href="https://scripts.converteai.net/1931009e-87e8-44a9-862f-c0f557162b5e/ab-test/688046b333cd39d34618b3c0/player.js" as="script">
+  <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
+  <link rel="dns-prefetch" href="https://cdn.converteai.net">
+  <link rel="dns-prefetch" href="https://scripts.converteai.net">
+  <link rel="dns-prefetch" href="https://images.converteai.net">
+  <link rel="dns-prefetch" href="https://m3u8.vturb.net">
+  <link rel="dns-prefetch" href="https://api.vturb.com.br">
+
+  <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
+
+  <script
+    src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+    data-utmify-prevent-subids
+    async
+    defer
+  ></script>
+
+</head>
+<body>
+
+  <noscript>
+    <img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=766343195855685&ev=PageView&noscript=1"
+    alt=""/>
+  </noscript>
+
+  <div class="headline-wrap">
+    <div class="headline-box">
+      Based on your answers, your <span class="hl-badge">Third Eye</span> is <span class="hl-dormant">COMPLETELY DORMANT</span> and this is
+      <span class="red-bold">VERY SERIOUS!</span>
+    </div>
+  </div>
+
+  <div class="top-image">
+    <img
+      src="/Olho-Fechado-Cumprimido-2.webp"
+      alt="Third Eye Pyramid"
+      fetchpriority="high"
+      loading="eager"
+      width="675"
+      height="675"
+    />
+  </div>
+
+  <div class="msg-wrap">
+    <div class="msg-box">
+      <p>
+        Watch the <span class="red-bold">Secret Video</span> from the
+        <span class="bold">U.S. Grand Master Mason</span> by
+        <span class="green-ital-u">clicking the button below</span>
+        and discover the <span class="blue-no-u">Sacred Ritual</span> he teaches to activate your
+        <span class="white-bold">Third Eye</span> and restore your ability to manifest WHATEVER you desire
+        <span class="bold-ital">in less than 7 days.</span>
+      </p>
+    </div>
+  </div>
+
+  <div class="gif-image">
+    <a href="https://abundanceprosperity.online/w4h23i45e.html">
+      <img
+        src="/Giff-Etapa-2-Cumprimido-(3).gif"
+        alt="Grand Master Mason"
+        loading="eager"
+        fetchpriority="high"
+        width="1080"
+        height="608"
+        style="cursor: pointer;"
+      />
+    </a>
+  </div>
+
+  <div class="btn-wrap">
+    <a href="https://abundanceprosperity.online/w4h23i45e.html" class="pulse-button">
+      CLICK TO WATCH THE VIDEO
+    </a>
+  </div>
+
+  <div class="bottom-logo">
+    <img
+      src="/Logo-Transparente-2.webp"
+      alt="Masonic Logo"
+      loading="lazy"
+      width="224"
+      height="224"
+    />
+  </div>
+
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '766343195855685');
+    fbq('track', 'PageView');
+  </script>
+
+  <script>
+    window.pixelId = "69b5d9d63ef951d9411e5471";
+    var a = document.createElement("script");
+    a.setAttribute("async", "");
+    a.setAttribute("defer", "");
+    a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+    document.head.appendChild(a);
+  </script>
+
+</body>
+</html>

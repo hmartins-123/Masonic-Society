@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Begin of Digistore24 Trusted Badge Code -->
+<script type="text/javascript" src="https://www.digistore24.com/trusted-badge/45114/ab7JavrYe8akdOz/salespage"></script>
+<!-- End of Digistore24 Trusted Badge Code -->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OTO 3 — The Supreme Map</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    /* Deep Purple + Copper palette */
+    --primary: #9B7CC4;
+    --primary-light: #C4A8E8;
+    --primary-dark: #5A3A8A;
+    --copper: #B87040;
+    --copper-light: #D4925A;
+    --copper-pale: #F0C090;
+    --deep: #07040F;
+    --deep2: #100A1E;
+    --deep3: #170E2A;
+    --text: #E0D4F5;
+    --text2: #C0A8E0;
+    --muted: #6A4A8A;
+    --ink: #07040F;
+    --alert: #7A2020;
+    --border: rgba(155,124,196,0.22);
+    --border-copper: rgba(184,112,64,0.25);
+  }
+
+  html { scroll-behavior: smooth; }
+  body { background: var(--deep); color: var(--text); font-family: 'Crimson Pro', Georgia, serif; font-size: 19px; line-height: 1.75; overflow-x: hidden; }
+
+  /* Cosmic starfield subtle texture */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image:
+      radial-gradient(1px 1px at 15% 20%, rgba(155,124,196,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 35% 60%, rgba(155,124,196,0.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 65% 15%, rgba(184,112,64,0.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 85% 75%, rgba(155,124,196,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 50% 40%, rgba(184,112,64,0.25) 0%, transparent 100%),
+      radial-gradient(1px 1px at 25% 85%, rgba(155,124,196,0.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 75% 50%, rgba(184,112,64,0.3) 0%, transparent 100%),
+      radial-gradient(circle at 30% 20%, rgba(155,124,196,0.05) 0%, transparent 50%),
+      radial-gradient(circle at 70% 80%, rgba(184,112,64,0.03) 0%, transparent 50%);
+    pointer-events: none; z-index: 0;
+  }
+
+  h1,h2,h3,h4 { font-family: 'Cinzel', serif; color: var(--primary-light); line-height: 1.2; letter-spacing: 0.02em; }
+  .eyebrow { font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--primary-dark); display: block; margin-bottom: 1rem; }
+  em { color: var(--copper-pale); font-style: italic; }
+  strong { color: #F5EEff; font-weight: 600; }
+
+  .container { max-width: 780px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+  section { padding: 64px 0; }
+
+  .top-bar { background: var(--alert); text-align: center; padding: 10px 24px; font-family: 'Cinzel', serif; font-size: 12px; letter-spacing: 0.1em; color: #FFD0D0; position: relative; z-index: 10; }
+
+  .hero { padding: 80px 0 64px; text-align: center; position: relative; overflow: hidden; }
+  .hero::before {
+    content: '';
+    position: absolute; top: -100px; left: 50%; transform: translateX(-50%);
+    width: 800px; height: 800px;
+    background: radial-gradient(ellipse, rgba(155,124,196,0.1) 0%, rgba(184,112,64,0.04) 40%, transparent 70%);
+    pointer-events: none;
+  }
+
+  /* Sephirot Tree SVG */
+  .tree-ornament { margin: 0 auto 36px; width: 120px; }
+  .tree-ornament svg { width: 100%; filter: drop-shadow(0 0 16px rgba(155,124,196,0.45)); }
+
+  .step-badge { display:inline-flex;align-items:center;gap:10px;border:1px solid var(--border);padding:7px 20px;font-family:'Cinzel',serif;font-size:11px;letter-spacing:0.18em;color:var(--primary);margin-bottom:28px; }
+  .step-badge span { background:var(--primary-dark);color:var(--primary-light);padding:2px 8px;font-size:10px;border:1px solid var(--border); }
+
+  .hero h1 { font-size:clamp(28px,4.5vw,44px);margin-bottom:20px; }
+  .hero-sub { font-size:clamp(18px,2.2vw,22px);color:var(--text2);max-width:620px;margin:0 auto 16px;font-style:italic;font-weight:300; }
+  .hero-price-inline { font-family:'Cinzel',serif;font-size:15px;color:var(--copper-pale);margin-bottom:32px;letter-spacing:0.05em; }
+
+  /* SEPHIROT MAP */
+  .sephirot-section { background: var(--deep2); }
+  .sephirot-map { display: grid; grid-template-columns: 1fr 200px 1fr; gap: 0; margin: 36px auto; max-width: 560px; align-items: center; }
+  .seph-tree-svg { grid-column: 2; }
+  .seph-labels-left, .seph-labels-right { display: flex; flex-direction: column; gap: 18px; }
+  .seph-labels-right { align-items: flex-start; }
+  .seph-labels-left { align-items: flex-end; }
+  .seph-label { font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 0.1em; color: var(--copper-light); }
+  .seph-label small { display: block; font-size: 10px; color: var(--muted); font-family: 'Crimson Pro', serif; font-style: italic; letter-spacing: 0; }
+  @media(max-width:580px){ .sephirot-map { grid-template-columns: 1fr; } .seph-labels-left, .seph-labels-right { flex-direction: row; flex-wrap: wrap; gap: 10px; align-items: flex-start; } }
+
+  .teach { background: var(--deep2); }
+  .teach-intro { font-size:20px;color:var(--text2);margin:24px 0 36px; }
+  .benefit-list { list-style:none; }
+  .benefit-list li { display:flex;gap:14px;align-items:flex-start;padding:18px 0;border-bottom:1px solid var(--border); }
+  .benefit-list li:last-child { border-bottom:none; }
+  .b-icon { color:var(--copper-light);font-size:20px;flex-shrink:0;margin-top:3px; }
+  .b-text strong { display:block;font-family:'Cinzel',serif;font-size:15px;color:var(--primary-light);margin-bottom:4px; }
+  .b-text span { font-size:16px;color:var(--text2); }
+
+  .story-block p { margin-bottom:22px;font-size:19px; }
+  .pull-quote { border-left:3px solid var(--primary-dark);padding:18px 24px;margin:36px 0;font-size:21px;font-style:italic;color:var(--copper-pale);font-weight:300;background:rgba(155,124,196,0.04); }
+
+  .what-is { background: var(--deep2); }
+  .inside-grid { display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:36px; }
+  @media(max-width:580px){ .inside-grid { grid-template-columns:1fr; } }
+  .inside-card { border:1px solid var(--border-copper);padding:24px 20px;position:relative;background:var(--deep3); }
+  .inside-card::before { content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--copper); }
+  .inside-card h4 { font-size:15px;color:var(--copper-pale);margin-bottom:8px; }
+  .inside-card p { font-size:15px;color:var(--text2);line-height:1.6; }
+
+  .cta-section { text-align:center;padding:80px 0;position:relative; }
+  .cta-section::before { content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(155,124,196,0.08) 0%,transparent 65%);pointer-events:none; }
+
+  .price-box { display:inline-block;border:1px solid var(--border-copper);padding:40px 52px;margin:32px 0;position:relative;background:var(--deep2); }
+  .price-box::before,.price-box::after { content:'⬡';position:absolute;color:var(--copper);font-size:14px;opacity:0.5; }
+  .price-box::before { top:-9px;left:-9px; } .price-box::after { bottom:-9px;right:-9px; }
+  .price-old { font-size:15px;color:var(--muted);text-decoration:line-through;margin-bottom:4px; }
+  .price-main { font-family:'Cinzel',serif;font-size:54px;color:var(--copper-pale);line-height:1;margin-bottom:6px; }
+  .price-note { font-size:13px;color:var(--muted);letter-spacing:0.08em; }
+
+  .cta-btn { display:inline-block;background:var(--primary-dark);color:var(--primary-light);border:1px solid var(--primary);font-family:'Cinzel',serif;font-size:15px;font-weight:700;letter-spacing:0.12em;padding:18px 48px;text-decoration:none;text-transform:uppercase;transition:all 0.2s;cursor:pointer;margin-bottom:16px; }
+  .cta-btn:hover { background:var(--primary);color:var(--ink);transform:translateY(-2px);box-shadow:0 8px 32px rgba(155,124,196,0.35); }
+
+  .cta-sub { font-size:13px;color:var(--muted);margin-top:10px; }
+  .trust-row { display:flex;justify-content:center;gap:28px;flex-wrap:wrap;margin-top:32px; }
+  .trust-item { font-size:13px;color:var(--muted); }
+  .no-thanks { text-align:center;padding:20px 0 48px; }
+  .no-thanks a { font-size:13px;color:var(--muted);text-decoration:underline; }
+
+  .guarantee { background:var(--deep2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:64px 0; }
+  .guarantee-inner { display:flex;gap:36px;align-items:flex-start; }
+  @media(max-width:580px){ .guarantee-inner { flex-direction:column; } }
+  .guarantee-seal { flex-shrink:0;width:100px;height:100px;border:2px solid var(--primary-dark);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-family:'Cinzel',serif;background:radial-gradient(ellipse,rgba(155,124,196,0.1),transparent); }
+  .guarantee-seal .days { font-size:28px;color:var(--primary-light);line-height:1;font-weight:700; }
+  .guarantee-seal .gtext { font-size:8px;letter-spacing:0.15em;color:var(--primary-dark);text-transform:uppercase; }
+  .guarantee-text h3 { font-size:20px;margin-bottom:12px; }
+  .guarantee-text p { font-size:17px;color:var(--text2);line-height:1.7; }
+
+  footer { background:var(--deep);border-top:1px solid var(--border);padding:36px 24px;text-align:center;font-size:13px;color:var(--muted);line-height:2;position:relative;z-index:1; }
+  footer a { color:var(--muted);text-decoration:underline; }
+  .disclaimer { font-size:13px;color:var(--muted);border-top:1px solid var(--border);padding-top:20px;margin-top:32px;line-height:1.7;font-style:italic; }
+
+  @keyframes fadeUp { from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);} }
+  .fade-in { animation:fadeUp 0.7s ease both; }
+  .delay-1{animation-delay:.15s;} .delay-2{animation-delay:.28s;} .delay-3{animation-delay:.42s;}
+
+  /* Cosmic pulse animation for ornament */
+  @keyframes pulse { 0%,100%{opacity:0.7;} 50%{opacity:1;} }
+  .tree-ornament svg { animation: pulse 4s ease-in-out infinite; }
+</style>
+</head>
+<body>
+
+<div class="top-bar">⚠ Special One-Time Offer — This page will not appear again</div>
+
+<section class="hero">
+  <div class="container">
+    <div class="step-badge fade-in"><span>STEP 4</span> Advanced Module</div>
+
+    <!-- Sephirot Tree ornament -->
+    <div class="tree-ornament fade-in delay-1">
+      <svg viewBox="0 0 100 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Paths -->
+        <line x1="50" y1="12" x2="50" y2="38" stroke="#5A3A8A" stroke-width="0.75" opacity="0.6"/>
+        <line x1="50" y1="38" x2="28" y2="58" stroke="#5A3A8A" stroke-width="0.75" opacity="0.6"/>
+        <line x1="50" y1="38" x2="72" y2="58" stroke="#5A3A8A" stroke-width="0.75" opacity="0.6"/>
+        <line x1="28" y1="58" x2="50" y2="78" stroke="#5A3A8A" stroke-width="0.75" opacity="0.6"/>
+        <line x1="72" y1="58" x2="50" y2="78" stroke="#5A3A8A" stroke-width="0.75" opacity="0.6"/>
+        <line x1="28" y1="58" x2="28" y2="98" stroke="#5A3A8A" stroke-width="0.75" opacity="0.6"/>
+        <line x1="72" y1="58" x2="72" y2="98" stroke="#5A3A8A" stroke-width="0.75" opacity="0.6"/>
+        <line x1="50" y1="78" x2="28" y2="98" stroke="#5A3A8A" stroke-width="0.75" opacity="0.6"/>
+        <line x1="50" y1="78" x2="72" y2="98" stroke="#5A3A8A" stroke-width="0.75" opacity="0.6"/>
+        <line x1="28" y1="98" x2="50" y2="118" stroke="#5A3A8A" stroke-width="0.75" opacity="0.6"/>
+        <line x1="72" y1="98" x2="50" y2="118" stroke="#5A3A8A" stroke-width="0.75" opacity="0.6"/>
+        <line x1="50" y1="118" x2="50" y2="148" stroke="#5A3A8A" stroke-width="0.75" opacity="0.6"/>
+        <!-- Sephirot nodes -->
+        <circle cx="50" cy="12" r="8" fill="rgba(184,112,64,0.15)" stroke="#B87040" stroke-width="1"/>
+        <circle cx="28" cy="58" r="7" fill="rgba(155,124,196,0.15)" stroke="#9B7CC4" stroke-width="1"/>
+        <circle cx="72" cy="58" r="7" fill="rgba(155,124,196,0.15)" stroke="#9B7CC4" stroke-width="1"/>
+        <circle cx="50" cy="38" r="7" fill="rgba(184,112,64,0.12)" stroke="#B87040" stroke-width="0.75"/>
+        <circle cx="50" cy="78" r="8" fill="rgba(155,124,196,0.2)" stroke="#9B7CC4" stroke-width="1.25"/>
+        <circle cx="28" cy="98" r="7" fill="rgba(155,124,196,0.15)" stroke="#9B7CC4" stroke-width="1"/>
+        <circle cx="72" cy="98" r="7" fill="rgba(155,124,196,0.15)" stroke="#9B7CC4" stroke-width="1"/>
+        <circle cx="50" cy="118" r="7" fill="rgba(184,112,64,0.12)" stroke="#B87040" stroke-width="0.75"/>
+        <circle cx="50" cy="148" r="9" fill="rgba(184,112,64,0.2)" stroke="#B87040" stroke-width="1.25"/>
+        <!-- Center glyph -->
+        <text x="50" y="81" text-anchor="middle" font-family="Cinzel,serif" font-size="8" fill="#C4A8E8">✦</text>
+      </svg>
+    </div>
+
+    <h1 class="fade-in delay-1">The Supreme Map</h1>
+    <p class="hero-sub fade-in delay-2">The Kabbalistic Prosperity Architecture — the cosmological map that Masonic masters used to navigate all dimensions of wealth, purpose, and fulfillment simultaneously</p>
+    <p class="hero-price-inline fade-in delay-2">The most advanced module in the series — just <strong>$97</strong> today</p>
+    <a href="#order" class="cta-btn fade-in delay-3">Yes — I Want the Supreme Map</a>
+    <p class="cta-sub fade-in delay-3">🔒 One click · Same card · Instant PDF delivery</p>
+  </div>
+</section>
+
+<!-- SEPHIROT EXPLAINER -->
+<section class="sephirot-section">
+  <div class="container">
+    <span class="eyebrow">The 10 Sephirot as Prosperity Dimensions</span>
+    <h2>A Complete Map of Human Abundance</h2>
+    <p style="color:var(--text2);margin:20px 0 32px;font-size:18px;">Each sphere on the Tree of Life maps to a specific layer of abundance — from material reality to the highest vision. The Supreme Map teaches you to navigate all ten.</p>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:24px;">
+      <div style="border:1px solid var(--border-copper);padding:16px 18px;background:var(--deep3);display:flex;gap:12px;align-items:flex-start;">
+        <span style="font-family:'Cinzel',serif;font-size:13px;color:var(--copper-light);flex-shrink:0;min-width:70px;">Kether</span>
+        <span style="font-size:15px;color:var(--text2);">Highest vision — the abundance you were born to embody</span>
+      </div>
+      <div style="border:1px solid var(--border-copper);padding:16px 18px;background:var(--deep3);display:flex;gap:12px;align-items:flex-start;">
+        <span style="font-family:'Cinzel',serif;font-size:13px;color:var(--copper-light);flex-shrink:0;min-width:70px;">Chokmah</span>
+        <span style="font-size:15px;color:var(--text2);">Inspired action — receiving and moving on divine timing</span>
+      </div>
+      <div style="border:1px solid var(--border-copper);padding:16px 18px;background:var(--deep3);display:flex;gap:12px;align-items:flex-start;">
+        <span style="font-family:'Cinzel',serif;font-size:13px;color:var(--copper-light);flex-shrink:0;min-width:70px;">Binah</span>
+        <span style="font-size:15px;color:var(--text2);">Structure and form — building the vessel for abundance</span>
+      </div>
+      <div style="border:1px solid var(--border-copper);padding:16px 18px;background:var(--deep3);display:flex;gap:12px;align-items:flex-start;">
+        <span style="font-family:'Cinzel',serif;font-size:13px;color:var(--copper-light);flex-shrink:0;min-width:70px;">Tiphareth</span>
+        <span style="font-size:15px;color:var(--text2);">The heart center — integration of self and prosperity</span>
+      </div>
+      <div style="border:1px solid var(--border-copper);padding:16px 18px;background:var(--deep3);display:flex;gap:12px;align-items:flex-start;">
+        <span style="font-family:'Cinzel',serif;font-size:13px;color:var(--copper-light);flex-shrink:0;min-width:70px;">Netzach</span>
+        <span style="font-size:15px;color:var(--text2);">Desire and magnetism — the force that draws wealth</span>
+      </div>
+      <div style="border:1px solid var(--border);padding:16px 18px;background:var(--deep3);display:flex;gap:12px;align-items:flex-start;">
+        <span style="font-family:'Cinzel',serif;font-size:13px;color:var(--primary-light);flex-shrink:0;min-width:70px;">Malkuth</span>
+        <span style="font-size:15px;color:var(--text2);">Physical reality — where the practice becomes results</span>
+      </div>
+    </div>
+    <p style="font-size:14px;color:var(--muted);margin-top:16px;font-style:italic;">+ Chesed, Geburah, Hod, Yesod — all 10 spheres covered in full inside the eBook</p>
+  </div>
+</section>
+
+<section class="teach">
+  <div class="container">
+    <span class="eyebrow">The Architecture Behind the Architecture</span>
+    <h2>The Map That Masters Used to Navigate Everything</h2>
+    <p class="teach-intro">The Masonic tradition drew from the Kabbalistic Tree of Life — a cosmological map that encodes the full journey from limitation to total flourishing. <em>The Supreme Map</em> applies this framework directly to your prosperity practice.</p>
+    <ul class="benefit-list">
+      <li><div class="b-icon">⬡</div><div class="b-text"><strong>The Tree of Life as a Prosperity Blueprint</strong><span>A complete guided interpretation of the 10 Sephirot as stages and dimensions of abundance — the most comprehensive framework in the entire series.</span></div></li>
+      <li><div class="b-icon">⬡</div><div class="b-text"><strong>Your Personal Sephirot Assessment</strong><span>Identify which of the 10 spheres is your current growth edge — where your prosperity work will have the greatest leverage right now.</span></div></li>
+      <li><div class="b-icon">⬡</div><div class="b-text"><strong>The 7 Key Path-Working Practices</strong><span>22 connecting paths exist between the Sephirot. The eBook maps the 7 most relevant for modern prosperity work — each a specific inner journey.</span></div></li>
+      <li><div class="b-icon">⬡</div><div class="b-text"><strong>App Integration Protocol</strong><span>Use your Sephirot profile to customize your daily app sessions — matching the right meditations and frequencies to your specific growth edge.</span></div></li>
+    </ul>
+  </div>
+</section>
+
+<section style="padding:64px 0;">
+  <div class="container">
+    <span class="eyebrow">The Deepest Layer</span>
+    <h2>Why the Masters Always Had a Map</h2>
+    <p>The Edinburgh manuscripts revealed that 33rd-degree Masons operated from a complete cosmological map — one that told them not only where they were in their development, but <em>where to go next</em>.</p>
+    <div class="pull-quote">"The uninitiated man wanders. The Master navigates. The difference between them is not effort — it is the possession of a map."<br><br><small style="font-size:13px;color:var(--muted);font-style:normal;letter-spacing:0.1em;">— The Edinburgh Manuscripts, circa 1898</small></div>
+    <p>This is the most intellectually rich eBook in the series — designed for those who want not just a practice, but a complete understanding of why and how it works.</p>
+  </div>
+</section>
+
+<section class="what-is">
+  <div class="container">
+    <span class="eyebrow">Inside the eBook</span>
+    <h2>What You Receive Today</h2>
+    <div class="inside-grid">
+      <div class="inside-card"><h4>Part I</h4><p>The Masonic-Kabbalistic connection — historical context and the esoteric tradition behind the Tree of Life.</p></div>
+      <div class="inside-card"><h4>Part II</h4><p>The 10 Sephirot as prosperity dimensions — a guided tour of each sphere and its practical meaning.</p></div>
+      <div class="inside-card"><h4>Part III</h4><p>Your personal Sephirot Assessment — identifying your current growth edge with precision.</p></div>
+      <div class="inside-card"><h4>Part IV</h4><p>The 7 Key Paths — the most important inner journeys for modern abundance work, mapped and explained.</p></div>
+      <div class="inside-card"><h4>Part V</h4><p>Integration with the app — customize your daily practice using your Sephirot profile.</p></div>
+      <div class="inside-card"><h4>Reference Charts</h4><p>Full Sephirot reference diagrams and complete personal assessment worksheet included.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section" id="order">
+  <div class="container">
+    <span class="eyebrow">Add to Your Order</span>
+    <h2>Navigate With a Master's Map</h2>
+    <p style="color:var(--text2);max-width:540px;margin:16px auto 0;font-size:18px;font-style:italic;">This is the framework the Masters used to understand everything. Add it to your prosperity system today.</p>
+    <div class="price-box">
+      <div class="price-old">Regular price: $197</div>
+      <div class="price-main">$97</div>
+      <div class="price-note">One-time · Instant PDF delivery · 60-day guarantee</div>
+    </div>
+    <a href="#" class="cta-btn">Yes — Add The Supreme Map to My Order</a>
+    <p class="cta-sub">One click · Same card · No extra checkout needed</p>
+    <div class="trust-row">
+      <div class="trust-item">🔒 256-bit SSL</div>
+      <div class="trust-item">✓ Digistore24</div>
+      <div class="trust-item">✓ 60-day guarantee</div>
+      <div class="trust-item">✓ Instant delivery</div>
+    </div>
+      <!-- Digistore24 Authorized Seller Badge -->
+    <div style="display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);padding:10px 20px;margin-top:28px;">
+      <img src="https://cch-files.edge.live.ds25.io/cch/v/679fa190-98d7-453b-abe0-952db4512a5e/files/615b5be783cea_5f50fc34342ec-profile-picture.png" alt="Digistore24 Authorized Seller" style="height:36px;">
+      <span style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;opacity:0.6;">Authorized Digistore24 Seller</span>
+    </div>
+  </div>
+</section>
+
+<div class="no-thanks"><a href="oto4-universal-frequences.html">No thank you — I'll pass on the map. Skip to final step →</a></div>
+
+<section class="guarantee">
+  <div class="container">
+    <div class="guarantee-inner">
+      <div class="guarantee-seal"><div class="days">60</div><div class="gtext">Day</div><div class="gtext">Guarantee</div></div>
+      <div class="guarantee-text">
+        <h3>Protected by Our 60-Day Guarantee</h3>
+        <p>Not satisfied? Email us within 60 days for a full refund — no questions, no forms.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Masonic Prosperity LLC · All Rights Reserved</p>
+  <p style="margin-top:8px;">
+    <a href="#">Privacy Policy</a> &nbsp;·&nbsp;
+    <a href="#">Terms of Service</a> &nbsp;·&nbsp;
+    <a href="#">Contact Support</a> &nbsp;·&nbsp;
+    <a href="#">Refund Policy</a>
+  </p>
+
+  <div style="max-width:640px;margin:32px auto 0;text-align:left;font-size:12px;line-height:1.9;border-top:1px solid rgba(255,255,255,0.08);padding-top:24px;">
+
+    <p style="margin-bottom:12px;"><strong>Unsubscribe:</strong> If you no longer wish to receive emails or newsletters from us, simply click the "Unsubscribe" link at the bottom of any email we send. Your request will be processed immediately.</p>
+
+    <p style="margin-bottom:12px;">This site is not a part of the Facebook website or Facebook Inc. Additionally, this site is not endorsed by Facebook in any way. FACEBOOK is a trademark of FACEBOOK, Inc.</p>
+
+    <p style="margin-bottom:12px;"><strong>Medical Disclaimer:</strong> The content of this site is for informational purposes only and does not substitute professional medical advice. Always seek the advice of your physician or other qualified health professional regarding any medical condition or treatment.</p>
+
+    <p style="margin-bottom:12px;"><strong>Results Disclaimer:</strong> Individual results vary. Testimonials and examples are not intended to represent or guarantee that anyone will achieve the same or similar results. Results described are individual experiences and are not typical or guaranteed.</p>
+
+    <p style="margin-bottom:12px;">This product is not affiliated with, sponsored by, or endorsed by any Masonic organization. All historical references are for educational and informational purposes only.</p>
+
+    <div style="display:flex;align-items:center;justify-content:center;gap:16px;margin-top:24px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.08);">
+      <img src="https://cch-files.edge.live.ds25.io/cch/v/679fa190-98d7-453b-abe0-952db4512a5e/files/615b5be783cea_5f50fc34342ec-profile-picture.png" alt="Digistore24 Secure" style="height:32px;opacity:0.7;">
+      <span style="font-size:10px;letter-spacing:0.12em;text-transform:uppercase;">Secure Processing by Digistore24</span>
+    </div>
+
+  </div>
+</footer>
+</body>
+</html>

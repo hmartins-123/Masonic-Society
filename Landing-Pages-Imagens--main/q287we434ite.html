@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Spiritual Quiz</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    /* Design Global e Quiz (Fonte Padrão) */
+    body{margin:0;padding:0;background:#000;font-family:Arial,Helvetica,sans-serif;color:#fff;}
+    
+    /* Topo e Imagem Original (Quiz) restaurados para o tamanho normal */
+    .top-image{width:100%;text-align:center;padding:40px 0 0;background:#000;overflow:hidden;transition: padding 0.5s ease;}
+    .top-image img#mainImage{width:96%;max-width:576px;display:block;margin:0 auto;transition: all 0.5s ease;}
+    
+    /* Contêiner do Quiz */
+    .quiz-container{max-width:600px;margin:40px auto;padding:20px;text-align:center}
+    
+    /* Fontes padrão do Quiz */
+    .question-title{font-size:24px;color:#fff;margin-bottom:26px;font-weight:700}
+    .answer-btn{background:#fff;color:#000;border:0;border-radius:15px;padding:16px 20px;font-size:16px;margin:10px 0;width:100%;cursor:pointer;text-align:left;transition:background-color .3s ease;font-family:Arial,Helvetica,sans-serif;}
+    .answer-btn:hover{background:#f0f0f0}
+    .input-wrap{text-align:left;margin-top:10px}
+    .text-input{width:100%;box-sizing:border-box;background:#fff;border:0;border-radius:15px;padding:16px 20px;font-size:16px;outline:0;font-family:Arial,Helvetica,sans-serif;}
+    .next-btn{margin-top:12px;text-align:center;font-weight:700}
+    .error{color:#ff6b6b;font-size:14px;margin-top:10px;display:none;text-align:left}
+    
+    /* TELA DE CARREGAMENTO (Centralizada e Dourada) */
+    #loadingScreen{display:none;text-align:center;padding:20px 20px 60px;background:#000;}
+    
+    /* Todas as fontes do carregamento em Dourado */
+    #loadingScreen h2{font-family: 'Cinzel', serif;color:#ffe680;font-size:24px;font-weight:700;margin-bottom:8px;}
+    #loadingScreen p{font-family: 'Lora', serif;color:#c9a84c;font-size:15px;margin-bottom:40px;}
+    
+    .progress-container{width:85%;background:#222;border-radius:20px;margin:0 auto;height:14px;overflow:hidden;}
+    
+    /* Barra de progresso com posição relativa para ancorar o brilho */
+    .progress-bar{height:100%;width:0%;background:linear-gradient(to right,#8a6a00,#c9a84c,#ffe680);border-radius:20px;transition:width .1s linear;box-shadow:0 0 8px rgba(201,168,76,0.6);position:relative;}
+    
+    /* EFEITO MÁGICO: A ponta brilhante da barra de carregamento */
+    .progress-bar::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 12px;
+      height: 100%;
+      background: #ffffff;
+      border-radius: 50%;
+      box-shadow: 0 0 15px 5px #ffe680, 0 0 25px 10px rgba(255, 255, 255, 0.8);
+      opacity: 0.9;
+    }
+    
+    .loading-label{font-family: 'Lora', serif;color:#c9a84c;font-size:13px;margin-top:12px;letter-spacing:2px;text-transform:uppercase;font-weight:bold;}
+    
+    @media(max-width:768px){
+      .quiz-container{margin:20px auto;padding:10px}
+      .question-title{font-size:20px;margin-bottom:20px}
+      .answer-btn,.text-input{font-size:15px;padding:14px 16px}
+    }
+  </style>
+
+  <link rel="preload" href="https://scripts.converteai.net/1931009e-87e8-44a9-862f-c0f557162b5e/ab-test/688046b333cd39d34618b3c0/player.js" as="script">
+  <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
+  <link rel="dns-prefetch" href="https://cdn.converteai.net">
+  <link rel="dns-prefetch" href="https://scripts.converteai.net">
+  <link rel="dns-prefetch" href="https://images.converteai.net">
+  <link rel="dns-prefetch" href="https://m3u8.vturb.net">
+  <link rel="dns-prefetch" href="https://api.vturb.com.br">
+
+  <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
+
+  <script
+    src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+    data-utmify-prevent-subids
+    async
+    defer
+  ></script>
+
+</head>
+<body>
+
+  <noscript>
+    <img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=766343195855685&ev=PageView&noscript=1"
+    alt=""/>
+  </noscript>
+
+  <div class="top-image" id="topImageContainer">
+    <img id="mainImage" src="/Completamente%20Fechado%20Cumprimido.webp" alt="Third Eye Pyramid" fetchpriority="high" loading="eager"/>
+  </div>
+  <div class="quiz-container" id="quiz">
+    <div id="questionBox" class="question-title"></div>
+    <div id="answerButtons"></div>
+    <div id="errorMsg" class="error"></div>
+  </div>
+  <div class="quiz-container" id="loadingScreen">
+    <h2>WE ARE PROCESSING YOUR INFORMATION</h2>
+    <p>Please wait while we reveal your result...</p>
+    
+    <div class="progress-container"><div class="progress-bar" id="progressBar"></div></div>
+    <div class="loading-label" id="loadingLabel">Connecting...</div>
+  </div>
+
+<script>
+  // Faz o pré-carregamento do GIF da TELA DE CARREGAMENTO para ele aparecer instantaneamente
+  const finalGiff = new Image();
+  finalGiff.src = "/Giff-Final-Quizz.webp";
+
+  // Faz o pré-carregamento do GIF da PRÓXIMA PÁGINA (Presell 03) para evitar travamentos
+  const proximaPaginaGiff = new Image();
+  proximaPaginaGiff.src = "/Giff-Etapa-2-Cumprimido-(3).gif";
+
+  const quizData=[{type:"input",key:"name",question:"What is your name?",placeholder:"Type your name here...",inputMode:"text",required:true},{type:"input",key:"dob",question:"What is your date of birth?",placeholder:"DD/MM/YYYY",inputMode:"numeric",required:false},{type:"choice",key:"wish",question:"What is the biggest wish you have — or have always wanted to come true?",answers:["💸 Become rich and financially prosperous.","❤️‍🩹 Healing for myself or someone I love.","💍 Find my true love.","✈️ Take the trip of my dreams.","🙏🏻 I don't know... I need a miracle to change my life."]},{type:"choice",question:"Have you ever felt like something is blocking your life... but you can't explain what it is?",answers:["😖 Yes, I've felt that more than once.","🥹 Maybe... but I'm not sure what it means.","😊 No, my life is perfect and everything always works out the way I want."]},{type:"choice",question:"Are you willing to live a life of miracles?",answers:["🚀 Yes, I'm ready.","🙌🏻 I'm not sure, but I want to try.","❌ I'm not interested."]}];
+  let currentQuestion=0;
+  const answers={name:"",dob:"",wish:"",choices:[]};
+  
+  function showQuestion(index){
+    const qBox=document.getElementById("questionBox");
+    const aBox=document.getElementById("answerButtons");
+    document.getElementById("loadingScreen").style.display="none";
+    const errorMsg=document.getElementById("errorMsg");
+    errorMsg.style.display="none";errorMsg.textContent="";
+    const q=quizData[index];
+    qBox.textContent=q.question;aBox.innerHTML="";
+    if(q.type==="input"){
+      const wrap=document.createElement("div");wrap.className="input-wrap";
+      const input=document.createElement("input");input.className="text-input";input.placeholder=q.placeholder||"";input.value=answers[q.key]||"";input.inputMode=q.inputMode||"text";input.type="text";
+      if(q.key==="dob"){
+        input.addEventListener("input",()=>{let v=input.value.replace(/[^\d]/g,"").slice(0,8);if(v.length>=5)v=v.slice(0,2)+"/"+v.slice(2,4)+"/"+v.slice(4);else if(v.length>=3)v=v.slice(0,2)+"/"+v.slice(2);input.value=v;});
+        input.addEventListener("keydown",(e)=>{const allowed=["Backspace","Delete","ArrowLeft","ArrowRight","Tab","Home","End"];if(allowed.includes(e.key))return;if(e.key.length===1&&!/\d/.test(e.key))e.preventDefault();});
+      }
+      const next=document.createElement("button");next.className="answer-btn next-btn";next.textContent="Continue →";
+      next.onclick=()=>{const val=(input.value||"").trim();if(q.key==="name"&&val.length<2){return showError("Please enter your name.");}answers[q.key]=val;currentQuestion++;showQuestion(currentQuestion);};
+      input.addEventListener("keydown",(e)=>{if(e.key==="Enter")next.click();});
+      wrap.appendChild(input);wrap.appendChild(next);aBox.appendChild(wrap);return;
+    }
+    q.answers.forEach(ans=>{const btn=document.createElement("button");btn.className="answer-btn";btn.textContent=ans;btn.onclick=()=>handleChoice(ans);aBox.appendChild(btn);});
+  }
+  
+  function showError(msg){const e=document.getElementById("errorMsg");e.textContent=msg;e.style.display="block";}
+  function handleChoice(answer){const q=quizData[currentQuestion];if(q.key==="wish")answers.wish=answer;else answers.choices.push(answer);currentQuestion++;if(currentQuestion<quizData.length)showQuestion(currentQuestion);else showLoadingScreen();}
+  
+  function showLoadingScreen(){
+    document.getElementById("quiz").style.display="none";
+    document.getElementById("loadingScreen").style.display="block";
+    
+    // Configurações exclusivas do GIF e do alinhamento do Carregamento
+    const imgContainer = document.getElementById("topImageContainer");
+    const mainImg = document.getElementById("mainImage");
+    
+    mainImg.src = finalGiff.src; // Troca a imagem
+    mainImg.style.width = "76%"; // Deixa o GIF 20% menor que o original
+    mainImg.style.maxWidth = "460px"; 
+    
+    // Adiciona o espaço no topo para centralizar tudo na tela
+    imgContainer.style.paddingTop = "10vh"; 
+
+    let width=0;
+    const bar=document.getElementById("progressBar");
+    const label=document.getElementById("loadingLabel");
+    const phases=[
+      {at:0,text:"Connecting..."},
+      {at:25,text:"Reading your energy..."},
+      {at:55,text:"Scanning your frequency..."},
+      {at:80,text:"Almost there..."},
+      {at:95,text:"Almost there..."}
+    ];
+    // 5 segundos de carregamento
+    const interval=setInterval(()=>{
+      if(width>=100){
+        clearInterval(interval);
+        window.location.href="https://abundanceprosperity.online/pr234as6s32e.html";
+      } else {
+        width++;
+        bar.style.width=width+"%";
+        const phase=phases.filter(p=>p.at<=width).pop();
+        if(phase) label.textContent=phase.text;
+      }
+    },50);
+  }
+  
+  showQuestion(currentQuestion);
+</script>
+<script>
+  document.addEventListener('gesturestart', function(e){ e.preventDefault(); });
+  document.addEventListener('gesturechange', function(e){ e.preventDefault(); });
+  document.addEventListener('gestureend', function(e){ e.preventDefault(); });
+  document.addEventListener('touchmove', function(e){ if(e.touches.length > 1) e.preventDefault(); }, { passive: false });
+</script>
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '766343195855685');
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=766343195855685&ev=PageView&noscript=1"
+    alt=""/>
+  </noscript>
+
+  <script>
+    window.pixelId = "69b5d9d63ef951d9411e5471";
+    var a = document.createElement("script");
+    a.setAttribute("async", "");
+    a.setAttribute("defer", "");
+    a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+    document.head.appendChild(a);
+  </script>
+</body>
+</html>
